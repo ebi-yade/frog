@@ -6,6 +6,7 @@ import (
 	"strconv"
 )
 
+// boolValue represents nil-able flag.Value of bool
 type boolValue struct {
 	ptr *bool
 }
@@ -14,7 +15,7 @@ func (b *boolValue) String() string {
 	return strconv.FormatBool(*b.ptr)
 }
 
-func (b boolValue) Set(val string) error {
+func (b *boolValue) Set(val string) error {
 	res, err := strconv.ParseBool(val)
 	if err != nil {
 		return errors.New("parse error")
