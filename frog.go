@@ -73,3 +73,6 @@ func IntVar(p *int, name string, usage string) {
 func StringVar(p *string, name string, usage string) {
 	flag.CommandLine.Var(&stringValue{ptr: p}, name, usage)
 }
+
+// Parse simply calls flag.Parse
+func Parse() { flag.Parse() }
