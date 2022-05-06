@@ -12,6 +12,9 @@ type boolValue struct {
 }
 
 func (b *boolValue) String() string {
+	if b == nil || b.ptr == nil {
+		return ""
+	}
 	return strconv.FormatBool(*b.ptr)
 }
 
@@ -30,6 +33,9 @@ type intValue struct {
 }
 
 func (i *intValue) String() string {
+	if i == nil || i.ptr == nil {
+		return ""
+	}
 	return strconv.Itoa(*i.ptr)
 }
 
@@ -53,6 +59,9 @@ func (s *stringValue) Set(val string) error {
 }
 
 func (s *stringValue) String() string {
+	if s == nil || s.ptr == nil {
+		return ""
+	}
 	return *s.ptr
 }
 
